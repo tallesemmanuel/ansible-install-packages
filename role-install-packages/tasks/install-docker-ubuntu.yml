@@ -1,0 +1,27 @@
+---
+
+- name: Install packages for install Docker.
+  apt: 
+    pkg:
+    - ca-certificates
+    - curl
+    - gnupg
+    - lsb-release
+
+- name: Add Docker's official GPG Key
+  ansible.builtin.shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+- name: Set stable version repository
+  ansible.builtin.shell: echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+- name: Update ubuntu and repository
+  apt: update_cache=yes force_apt_get=yes
+
+- name: Install Docker stable version and containerd.io
+  apt:
+    pkg:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+
+...

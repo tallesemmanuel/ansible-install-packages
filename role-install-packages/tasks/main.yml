@@ -1,0 +1,9 @@
+---
+# tasks file for role-install-packages
+
+
+- include: update-upgrade-ubuntu.yml
+- include: install-docker-ubuntu.yml
+- include: install-terraform-ubuntu.yml
+
+...
