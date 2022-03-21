@@ -1,5 +1,11 @@
 ---
 # defaults file for role-install-packages
 
+# Variable kubectl version - example: 1.21.0-00
 kubectl_version: 1.21.0-00
+
+# Variable kind version - example: v0.12.0
 kind_version: v0.12.0
+
+# Variable helm version - example: v3.0.0
+helm_version: v3.8.1
