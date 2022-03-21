@@ -1,0 +1,11 @@
+---
+
+- name: Download kind
+  ansible.builtin.shell: curl -Lo ./kind https://kind.sigs.k8s.io/dl/{{ kind_version }}/kind-linux-amd64
+
+- name: Giving permission to the kind executable
+  ansible.builtin.shell: chmod +x ./kind
+
+- name: Moving kind to bin directory
+  ansible.builtin.shell: mv ./kind /usr/local/bin
+  

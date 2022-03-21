@@ -5,5 +5,7 @@
 - include: update-upgrade-ubuntu.yml
 - include: install-docker-ubuntu.yml
 - include: install-terraform-ubuntu.yml
+- include: install-kubectl-ubuntu.yml
+- include: install-kind-ubuntu.yml
 
 ...
