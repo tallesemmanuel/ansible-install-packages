@@ -4,13 +4,4 @@
   apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
   tags: update-ubuntu
 
-- name: Ubuntu | Install packages for use.
-  apt: 
-    pkg:
-    - net-tools
-    - vim
-    - nano
-    - git
-  tags: update-ubuntu
-
 ...

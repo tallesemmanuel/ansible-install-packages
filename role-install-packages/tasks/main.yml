@@ -2,14 +2,19 @@
 # tasks file for role-install-packages
 
 - name: Ubuntu | update and install packages.
-  include: update-ubuntu.yml
+  include_tasks: update-ubuntu.yml
   tags: 
     - update-ubuntu
 
 - name: Ubuntu | upgrade 
-  include: upgrade-ubuntu.yml
+  include_tasks: upgrade-ubuntu.yml
   tags: 
     - upgrade-ubuntu
+
+- name: Ubuntu | Install packages
+  include_tasks: install-packages-ubuntu
+  tags:
+    - install-packages-ubuntu
 
 - name: Docker | Add repository and install
   include_tasks: install-docker-ubuntu.yml

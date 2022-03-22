@@ -1,0 +1,12 @@
+---
+
+- name: Ubuntu | Install packages for use.
+  apt: 
+    pkg:
+    - net-tools
+    - vim
+    - nano
+    - git
+  tags: install-packages-ubuntu
+
+...
