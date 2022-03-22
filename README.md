@@ -78,7 +78,7 @@ terminal return
 playbook: playbook.yml
 
   play #1 (lab): Executando playbook.   TAGS: []
-      TASK TAGS: [docker, helm, kind, kubectl, remove-cache-ubuntu, terraform, update-ubuntu, upgrade-ubuntu, vagrant]
+      TASK TAGS: [docker, helm, kind, kubectl, remove-cache-ubuntu, terraform, update-ubuntu, upgrade-ubuntu, vagrant, install-packages-ubuntu]
 ```
 
 To install only docker, use this: 
