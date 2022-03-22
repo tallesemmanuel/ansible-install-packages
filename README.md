@@ -45,7 +45,7 @@ helm_version: v3.8.1
 
 playbook example.
 
-´´´bash
+```bash
 ---
 - name: running playbook
   hosts: <servers>
@@ -54,4 +54,4 @@ playbook example.
   roles:
     - role: role-install-packages
 ...
-´´´
+```
