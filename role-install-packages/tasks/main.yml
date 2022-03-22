@@ -1,11 +1,48 @@
 ---
 # tasks file for role-install-packages
 
+- name: Ubuntu | update and install packages.
+  include: update-ubuntu.yml
+  tags: 
+    - update-ubuntu
 
-- include: update-upgrade-ubuntu.yml
-- include: install-docker-ubuntu.yml
-- include: install-terraform-ubuntu.yml
-- include: install-kubectl-ubuntu.yml
-- include: install-kind-ubuntu.yml
-- include: install-vagrant-ubuntu.yml
+- name: Ubuntu | upgrade 
+  include: upgrade-ubuntu.yml
+  tags: 
+    - upgrade-ubuntu
+
+- name: Docker | Add repository and install
+  include_tasks: install-docker-ubuntu.yml
+  tags:
+    - docker
+
+- name: Terraform | Add repository and install
+  include_tasks: install-terraform-ubuntu.yml
+  tags: 
+    - terraform
+
+- name: Kubectl | Add repository and install
+  include_tasks: install-kubectl-ubuntu.yml
+  tags: 
+    - kubectl
+
+- name: Kind | Add repository and moving binary
+  include_tasks: install-kind-ubuntu.yml
+  tags: 
+    - kind
+
+- name: Helm | Add repository and install
+  include_tasks: install-helm-ubuntu.yml
+  tags: 
+    - helm
+
+- name: Vagrant | Add repository and install
+  include_tasks: install-vagrant-ubuntu.yml
+  tags: 
+    - vagrant
+
+- name: Ubuntu | Remove cache 
+  include_tasks: remove-cache-ubuntu.yml
+  tags: 
+    - remove-cache-ubuntu
 ...

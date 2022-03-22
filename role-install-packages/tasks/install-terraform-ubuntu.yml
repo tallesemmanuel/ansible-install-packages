@@ -1,24 +1,35 @@
 ---
 
-- name: Install packages for install terraform.
+- name: Terraform | Install packages for install terraform.
   apt: 
     pkg:
     - gnupg
     - curl
     - software-properties-common
+  tags: terraform
 
-- name: Add HashiCopr official GPG Key
-  ansible.builtin.shell: curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+- name: Terraform | Add HashiCopr official GPG Key
+  ansible.builtin.apt_key: 
+    url: https://apt.releases.hashicorp.com/gpg 
+    state: present
+  tags: terraform
 
-- name: Add official HashiCorp Linux repository
-  ansible.builtin.shell: sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+- name: Terraform | Add official HashiCorp Linux repository
+  ansible.builtin.apt_repository:
+    repo: "deb https://apt.releases.hashicorp.com {{ ansible_facts.lsb.codename }} main"
+    filename: terraform
+    state: present
+  tags: terraform
 
-- name: Update ubuntu and repository
+- name: Terraform | Update ubuntu and repository
   apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+  tags: terraform
 
-- name: Install package terraform
+- name: Terraform | Install package terraform
   apt: 
     pkg:
     - terraform
+    force: yes
+  tags: terraform
 
 ...
