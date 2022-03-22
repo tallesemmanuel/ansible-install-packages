@@ -1,6 +1,6 @@
 # ansible-install-packages
 
-Using ansible to install main packages that we, sysadmin and devops currently use in a notebook format.
+Using ansible to install main packages that we, sysadmin and devops currently use in a notebook format or ubuntu linux servers.
 
 - Docker
 - Kubectl
