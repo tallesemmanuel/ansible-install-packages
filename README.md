@@ -4,7 +4,6 @@ Using ansible to install main packages that we, sysadmin and devops currently us
 
 - Docker
 - Kubectl
-- Ansible
 - Terraform
 - Vagrant
 - Kind
