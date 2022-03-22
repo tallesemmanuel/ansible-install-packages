@@ -46,6 +46,25 @@ vagrant_version: 2.2.17
 ```
 
 
+If you don't want to install any of these tools, just comment out the desired line in the main.yml file, in the "tasks" directory.
+
+Example: I just want to update my ubuntu and install docker, in this case I can comment the others.
+
+```bash
+---
+# tasks file for role-install-packages
+
+
+- include: update-upgrade-ubuntu.yml
+- include: install-docker-ubuntu.yml
+#- include: install-terraform-ubuntu.yml
+#- include: install-kubectl-ubuntu.yml
+#- include: install-kind-ubuntu.yml
+#- include: install-vagrant-ubuntu.yml
+...
+```
+
+
 Playbook example.
 
 ```bash
