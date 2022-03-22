@@ -46,12 +46,13 @@ helm_version: v3.8.1
 playbook example.
 
 ´´´bash
-
-- name: running playbook
-  hosts: <servers>
-  gather_facts: false
-  become: true
-  roles:
-    - role: role-install-packages
+  ---
+  
+  - name: running playbook
+    hosts: <servers>
+    gather_facts: false
+    become: true
+    roles:
+      - role: role-install-packages
 
 ´´´
