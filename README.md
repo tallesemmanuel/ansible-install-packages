@@ -10,7 +10,7 @@ Using ansible to install main packages that we, sysadmin and devops currently us
 - Kind
 - Helm
 
-## requirements
+## Requirements
 
 - Ubuntu 20.04.4 LTS. But it could be another version.
 
