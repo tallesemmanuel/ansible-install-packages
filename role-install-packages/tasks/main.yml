@@ -7,5 +7,5 @@
 - include: install-terraform-ubuntu.yml
 - include: install-kubectl-ubuntu.yml
 - include: install-kind-ubuntu.yml
-
+- include: install-vagrant-ubuntu.yml
 ...

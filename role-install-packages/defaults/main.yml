@@ -9,3 +9,6 @@ kind_version: v0.12.0
 
 # Variable helm version - example: v3.0.0
 helm_version: v3.8.1
+
+# Variable vagrant version - example: 2.2.18
+vagrant_version: 2.2.17
