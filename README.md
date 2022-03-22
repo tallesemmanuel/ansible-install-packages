@@ -24,7 +24,9 @@ Download the project.
 git clone https://github.com/tallesemmanuel/ansible-install-packages.git
 ```
 
-Before running the playbook, it is necessary to edit the main.yml file, in the "defaults" directory, which is where you will put the versions of some services to be installed.
+Before running the playbook, it is necessary to edit the main.yml file, in the "defaults" directory, which is where you will put the versions of some services to be installed or pass the playbook call, with the --extra-vars parameter.
+
+first case
 
 ```bash
 ---
@@ -44,6 +46,11 @@ vagrant_version: 2.2.17
 
 ...
 ```
+second case
+
+```bash
+ansible-playbook -i hosts playbook.yml --extra-vars "kubectl_version=1.21.0-00"
+```
 
 Playbook example.
 
@@ -51,7 +58,7 @@ Playbook example.
 ---
 - name: running playbook
   hosts: <servers>
-  gather_facts: false
+  gather_facts: true
   become: true
   roles:
     - role: role-install-packages
