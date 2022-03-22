@@ -12,8 +12,9 @@ Using ansible to install main packages that we, sysadmin and devops currently us
 
 ## requirements
 
-Ubuntu 20.04.4 LTS. But it could be another version.
-Ssh key on the target server.
+- Ubuntu 20.04.4 LTS. But it could be another version.
+
+- Ssh key on the target server.
 
 ## How to do the whole procedure
 
