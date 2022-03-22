@@ -10,7 +10,7 @@ Using ansible to install main packages that we, sysadmin and devops currently us
 - Kind
 - Helm
 
-## Como realizr todo procedimento
+## How to do the whole procedure
 
 Download the project.
 
@@ -48,3 +48,5 @@ playbook example.
   become: true
   roles:
     - role: role-install-packages
+
+´´´
