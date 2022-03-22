@@ -24,7 +24,7 @@ Download the project.
 git clone https://github.com/tallesemmanuel/ansible-install-packages.git
 ```
 
-before running the playbook, it is necessary to edit the main.yml file, in the "defaults" directory, which is where you will put the versions of some services to be installed.
+Before running the playbook, it is necessary to edit the main.yml file, in the "defaults" directory, which is where you will put the versions of some services to be installed.
 
 ```bash
 ---
@@ -39,11 +39,14 @@ kind_version: v0.12.0
 # Variable helm version - example: v3.0.0
 helm_version: v3.8.1
 
+# Variable vagrant version - example: 2.2.18
+vagrant_version: 2.2.17
+
 ...
 ```
 
 
-playbook example.
+Playbook example.
 
 ```bash
 ---
