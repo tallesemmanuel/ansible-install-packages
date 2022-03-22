@@ -45,26 +45,6 @@ vagrant_version: 2.2.17
 ...
 ```
 
-
-If you don't want to install any of these tools, just comment out the desired line in the main.yml file, in the "tasks" directory.
-
-Example: I just want to update my ubuntu and install docker, in this case I can comment the others.
-
-```bash
----
-# tasks file for role-install-packages
-
-
-- include: update-upgrade-ubuntu.yml
-- include: install-docker-ubuntu.yml
-#- include: install-terraform-ubuntu.yml
-#- include: install-kubectl-ubuntu.yml
-#- include: install-kind-ubuntu.yml
-#- include: install-vagrant-ubuntu.yml
-...
-```
-
-
 Playbook example.
 
 ```bash
@@ -77,3 +57,38 @@ Playbook example.
     - role: role-install-packages
 ...
 ```
+
+If you just want to update or install only some tool, you can use the existing tags and pass it in the playbook call.
+
+To list all existing tags in the role.
+
+```bash
+ansible-playbook -i hosts playbook.yml --list-tags
+```
+
+terminal return
+
+```bash
+playbook: playbook.yml
+
+  play #1 (lab): Executando playbook.   TAGS: []
+      TASK TAGS: [docker, helm, kind, kubectl, remove-cache-ubuntu, terraform, update-ubuntu, upgrade-ubuntu, vagrant]
+```
+
+To install only docker, use this: 
+
+In this case, the playbook will understand and execute only the task that has "docker" as a tag.
+
+```bash
+ansible-playbook -i hosts playbook.yml --tags docker
+```
+
+So that you don't run some specific tool, do it like this:
+
+In this case, the playbook will be executed and only the one tagged as docker will not be executed, all others will be executed.
+
+```bash
+ansible-playbook -i hosts playbook.yml --skip-tags docker
+```
+
+
