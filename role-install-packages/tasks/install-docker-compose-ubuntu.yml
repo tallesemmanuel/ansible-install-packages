@@ -1,0 +1,38 @@
+---
+
+- name: Docker compose | Install packages necessary for install Docker compose.
+  ansible.builtin.apt: 
+    pkg:
+    - ca-certificates
+    - curl
+    - gnupg
+    - lsb-release
+    - apt-transport-https
+    - software-properties-common
+  tags: docker-compose
+
+- name: Docker compose  | Add Docker's official GPG Key
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  tags: docker-compose
+
+- name: Docker compose  | Set stable version repository
+  ansible.builtin.apt_repository:
+    repo: "deb https://download.docker.com/linux/ubuntu {{ ansible_facts.lsb.codename }} stable"
+    filename: docker
+    state: present
+  tags: docker-compose
+
+- name: Docker compose  | Update ubuntu and repository
+  ansible.builtin.apt: update_cache=yes force_apt_get=yes
+  tags: docker-compose
+
+- name: Docker compose | Install Docker compose from official GitHub repo
+  ansible.builtin.get_url:
+    url : https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64
+    dest: /usr/local/bin/docker-compose
+    mode: 'u+x,g+x'
+  tags: docker-compose
+
+...

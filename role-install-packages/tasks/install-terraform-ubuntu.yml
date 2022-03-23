@@ -1,7 +1,7 @@
 ---
 
 - name: Terraform | Install packages for install terraform.
-  apt: 
+  ansible.builtin.apt: 
     pkg:
     - gnupg
     - curl
@@ -22,11 +22,11 @@
   tags: terraform
 
 - name: Terraform | Update ubuntu and repository
-  apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+  ansible.builtin.apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
   tags: terraform
 
 - name: Terraform | Install package terraform
-  apt: 
+  ansible.builtin.apt: 
     pkg:
     - terraform
     force: yes

@@ -1,12 +1,12 @@
 ---
 
 - name: Ubuntu | Install packages for use.
-  apt: 
+  ansible.builtin.apt: 
     pkg:
     - net-tools
     - vim
     - nano
     - git
-  tags: install-packages-ubuntu
+  tags: packages-ubuntu
 
 ...

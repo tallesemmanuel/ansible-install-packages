@@ -1,12 +1,12 @@
 ---
 
 - name: Ubuntu | Remove useless packages from the cache
-  apt:
+  ansible.builtin.apt:
     autoclean: yes
   tags: remove-cache-ubuntu
 
 - name: Ubuntu | Remove dependencies that are no longer required
-  apt:
+  ansible.builtin.apt:
     autoremove: yes
   tags: remove-cache-ubuntu
 

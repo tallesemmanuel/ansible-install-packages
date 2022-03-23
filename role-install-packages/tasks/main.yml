@@ -12,14 +12,19 @@
     - upgrade-ubuntu
 
 - name: Ubuntu | Install packages
-  include_tasks: install-packages-ubuntu
+  include_tasks: install-packages-ubuntu.yml
   tags:
-    - install-packages-ubuntu
+    - packages-ubuntu
 
 - name: Docker | Add repository and install
   include_tasks: install-docker-ubuntu.yml
   tags:
     - docker
+
+- name: Docker compose | Add repository and install
+  include_tasks: install-docker-compose-ubuntu.yml
+  tags:
+    - docker-compose
 
 - name: Terraform | Add repository and install
   include_tasks: install-terraform-ubuntu.yml

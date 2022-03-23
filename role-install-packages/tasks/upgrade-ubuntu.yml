@@ -1,7 +1,7 @@
 ---
 
 - name: Ubuntu | Upgrade all apt packages
-  apt: upgrade=dist force_apt_get=yes
+  ansible.builtin.apt: upgrade=dist force_apt_get=yes
   tags: upgrade-ubuntu
 
 ...

@@ -1,7 +1,7 @@
 ---
 
 - name: Docker | Install packages necessary for install Docker.
-  apt: 
+  ansible.builtin.apt: 
     pkg:
     - ca-certificates
     - curl
@@ -17,17 +17,17 @@
 
 - name: Docker | Set stable version repository
   ansible.builtin.apt_repository:
-    repo: "deb https://download.docker.com/linux/ubuntu focal stable"
+    repo: "deb https://download.docker.com/linux/ubuntu {{ ansible_facts.lsb.codename }} stable"
     filename: docker
     state: present
   tags: docker
 
 - name: Docker | Update ubuntu and repository
-  apt: update_cache=yes force_apt_get=yes
+  ansible.builtin.apt: update_cache=yes force_apt_get=yes
   tags: docker
 
 - name: Docker | Install Docker stable version and containerd.io
-  apt:
+  ansible.builtin.apt:
     pkg:
     - docker-ce
     - docker-ce-cli

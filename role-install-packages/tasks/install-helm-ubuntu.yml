@@ -1,11 +1,11 @@
 ---
 
 - name: Helm | Update apt-get repo and cache 
-  apt: update_cache=yes force_apt_get=yes
+  ansible.builtin.apt: update_cache=yes force_apt_get=yes
   tags: helm
 
 - name: Helm | Install packages necessary for install Helm.
-  apt: 
+  ansible.builtin.apt: 
     pkg:
     - curl
     - apt-transport-https
@@ -25,11 +25,11 @@
   tags: helm
 
 - name: Helm | Update apt-get repo and cache 
-  apt: update_cache=yes force_apt_get=yes
+  ansible.builtin.apt: update_cache=yes force_apt_get=yes
   tags: helm
 
 - name: Helm | Install helm.
-  apt: 
+  ansible.builtin.apt: 
     pkg:
     - helm={{ helm_version }}
   tags: helm
