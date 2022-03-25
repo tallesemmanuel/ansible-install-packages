@@ -26,6 +26,11 @@
   tags:
     - docker-compose
 
+- name: Podman compose | Add repository and install
+  include_tasks: install-podman-ubuntu.yml
+  tags:
+    - podman
+
 - name: Terraform | Add repository and install
   include_tasks: install-terraform-ubuntu.yml
   tags: 

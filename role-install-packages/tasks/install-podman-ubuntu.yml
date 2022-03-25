@@ -1,0 +1,27 @@
+---
+
+- name: Podman | Add Podman official GPG Key
+  ansible.builtin.apt_key:
+    url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ansible_distribution_version}}/Release.key"
+    state: present
+  tags: podman
+
+- name: Podman | Set stable version repository
+  ansible.builtin.apt_repository:
+    repo: "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ansible_distribution_version}}/ /"
+    filename: devel:kubic:libcontainers:stable
+    state: present
+  tags: podman
+
+- name: Podman | Update ubuntu and repository
+  ansible.builtin.apt: update_cache=yes force_apt_get=yes
+  tags: Podman
+
+- name: Podman | Install podman stable version.
+  ansible.builtin.apt:
+    pkg:
+    - podman
+    force: yes
+  tags: podman
+
+...
